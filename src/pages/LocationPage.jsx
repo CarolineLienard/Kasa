@@ -1,5 +1,6 @@
 import React, { useEffect, useState  } from 'react'
 import { useParams } from 'react-router'
+import { useNavigate } from 'react-router'
 import { getLocationById } from '../API/location'
 import styled from 'styled-components'
 
@@ -91,11 +92,14 @@ const Profile = styled.div `
 function LocationPage() {
     const {id} = useParams()
     const [data, setData]= useState({})
+    let navigate = useNavigate()
     
     useEffect(()=>{
         getLocationById(id).then((data) =>{
             setData(data)
-        })
+        }).catch(() => {
+            navigate('/Error')
+          })
     }, [])
 
     function handleRating(rating) {

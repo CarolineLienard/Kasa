@@ -9,6 +9,9 @@ export function getLocationById(id){
   return axios.get('/db/data.json').then((response) => {
     let data = response.data
     let object = data.find(el => el.id === id)
+    if(!object) {
+      throw new Error('Erreur')
+    }
     return object
   })
 
