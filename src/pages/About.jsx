@@ -1,37 +1,16 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Dropdown from '../components/Dropdown'
 
-import MainContainer from '../assets/styles/MainContainer'
 import background from '../assets/images/background.png'
-import { DEVICE } from '../assets/styles/Device'
-
-const AboutContainer = styled.div `
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem 7rem;
-    @media ${DEVICE.mobileL} {
-    padding: 2rem;
-    }
-    .dropdown-container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-`
 
 function About() {
   return (
-    <MainContainer>
+    <div className='mainContainer'>
         <Header />
-        <AboutContainer>
+        <div className='aboutContainer'>
             <div>
                 <img src={background} alt='' />
             </div>
@@ -53,9 +32,9 @@ function About() {
                     dropdownContent="La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que pour les voyageurs, chaque logement correspond aux critères de sécurité établis par nos services. En laissant une note aussi bien à l'hôte qu'au locataire, cela permet à nos équipes de vérifier que les standards sont bien respectés. Nous organisons également des ateliers sur la sécurité domestique pour nos hôtes."
                 />
             </div>
-        </AboutContainer>
+        </div>
         <Footer />
-    </MainContainer>
+    </div>
   )
 }
 

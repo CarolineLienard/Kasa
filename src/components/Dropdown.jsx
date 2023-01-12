@@ -1,30 +1,8 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
 
-import { PRIMARYCOLORS } from '../assets/styles/PrimaryColors'
 import chevronDown from '../assets/icons/chevron-down.svg'
 import chevronUp from '../assets/icons/chevron-up.svg'
 
-
-const DropdownContainer = styled.div `
-    width: 100%;
-    .dropdown-title {
-        background-color: ${PRIMARYCOLORS.kasa};
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        position: relative; 
-        cursor: pointer;
-    }
-    .dropdown-content {
-        background-color: ${PRIMARYCOLORS.lightGrey};
-        border-radius: 0px 0px 5px 5px;
-        padding: 1.5rem;
-        margin-top: -5px;
-    }
-`
 
 function Dropdown({dropdownTitle, dropdownContent, mode}) {
   const [isOpen, setIsOpen] = useState(false)  
@@ -34,7 +12,7 @@ function Dropdown({dropdownTitle, dropdownContent, mode}) {
   }
 
   return (
-    <DropdownContainer>
+    <div className='dropdown'>
         <div className='dropdown-title' onClick={handleOpen}>
             <span>{dropdownTitle}</span>
             <img src={isOpen ? chevronUp : chevronDown} alt='' />
@@ -51,7 +29,7 @@ function Dropdown({dropdownTitle, dropdownContent, mode}) {
           : <p>{dropdownContent}</p>
           }
         </div>
-    </DropdownContainer>
+    </div>
   )
 }
 

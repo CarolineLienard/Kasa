@@ -1,31 +1,7 @@
 import React, { useEffect } from 'react'
-import styled from 'styled-components'
 
 import chevronLeft from '../assets/icons/chevron-left.svg'
 import chevronRight from '../assets/icons/chevron-right.svg'
-
-const SliderContainer = styled.div `
-  width: 100%;
-  box-sizing: border-box;
-  .image-container {
-    display: none;
-    .image {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      height: 415px;
-      border-radius: 25px;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      img {
-        cursor: pointer;
-        margin: 1rem;
-      }
-    }
-  }
-`
 
 function Slider({options}) {
   let slideIndex = 1
@@ -52,7 +28,7 @@ function Slider({options}) {
   }
   
   return (
-    <SliderContainer>
+    <div className='sliderContainer'>
       {options?.map((picture, i) => {
         return (
           <div key={i} className='image-container'>
@@ -63,7 +39,7 @@ function Slider({options}) {
           </div>
         )
       })}
-    </SliderContainer>
+    </div>
   )
 }
 

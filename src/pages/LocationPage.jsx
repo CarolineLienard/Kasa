@@ -2,7 +2,6 @@ import React, { useEffect, useState  } from 'react'
 import { useParams } from 'react-router'
 import { useNavigate } from 'react-router'
 import { getLocationById } from '../API/location'
-import styled from 'styled-components'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -10,84 +9,9 @@ import Dropdown from '../components/Dropdown'
 import Slider from '../components/Slider'
 import Tag from '../components/Tag'
 
-import MainContainer from '../assets/styles/MainContainer'
 import star from '../assets/icons/star-fill.svg'
 import emptyStar from '../assets/icons/star-empty.svg'
-import { DEVICE } from '../assets/styles/Device'
 
-const LocationPageContainer = styled.div `
-    padding: 1.5rem 7rem;
-    @media ${DEVICE.mobileL} {
-        padding: 2rem;
-    }   
-    .location-information {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        margin-top: 2rem;
-        @media ${DEVICE.mobileL} {
-            flex-direction: column;
-        }  
-        .location-title {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            .title {
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            .tags-container {
-                display: flex;
-                gap: 0.8rem;
-            }
-        }
-    }
-    .location-description {
-        display: flex;
-        gap: 3rem;
-        margin: 2rem 0;
-        @media ${DEVICE.mobileL} {
-            flex-direction: column;
-            gap: 2rem;
-            margin-top: 3.5rem;
-        }  
-    }
-`
-
-const Profile = styled.div `
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 1.5rem;
-    @media ${DEVICE.mobileL} {
-        flex-direction: row-reverse;
-        align-items: center;
-        gap: 7rem;
-        margin-top: 0.8rem;
-    }  
-    .profile-title {
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-        .profile-name {
-            display: flex;
-            flex-direction: column;
-            text-align: right;
-            gap: 0.4rem;
-        }
-        .profile-picture {
-            width: 64px;
-            height: 64px;
-            background-color: lightgray;
-            border-radius: 50%;
-        }
-    }
-    .star-container {
-        display: flex;
-        gap: 4px;
-    }
-`
 
 function LocationPage() {
     const {id} = useParams()
@@ -113,9 +37,9 @@ function LocationPage() {
     }
 
     return (
-        <MainContainer>
+        <div className='mainContainer'>
             <Header />
-            <LocationPageContainer>
+            <div className='locationPageContainer'>
                 <Slider options={data.pictures} />
                 <div className='location-information'>
                     <div className='location-title'>
@@ -132,7 +56,7 @@ function LocationPage() {
                         </div>
                     </div>
 
-                    <Profile>
+                    <div className='profile'>
                         <div className='profile-title'>
                             <div className='profile-name'>
                                 <p>{data.host?.name}</p>
@@ -142,7 +66,7 @@ function LocationPage() {
                         <div className='star-container'>
                             {data.rating && handleRating(data.rating)}
                         </div>
-                    </Profile>
+                    </div>
                 </div>
 
                 <div className='location-description'>
@@ -156,9 +80,9 @@ function LocationPage() {
                         mode={'list'}
                     />
                 </div>
-            </LocationPageContainer>
+            </div>
             <Footer />
-        </MainContainer>
+        </div>
     )
 }
 
