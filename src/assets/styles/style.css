@@ -89,7 +89,7 @@ li {
     gap: 0.5rem;
 }
 
-.title .tags-container {
+.tags-container {
     display: flex;
     gap: 0.8rem;
 }
