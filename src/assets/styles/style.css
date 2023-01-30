@@ -220,6 +220,13 @@ li {
 .sliderContainer {
     width: 100%;
     box-sizing: border-box;
+    position: relative;
+}
+
+.slider-position {
+    position: absolute;
+    bottom: 4%;
+    left: 50%;
 }
 
 .image-container {
